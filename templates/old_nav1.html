@@ -1,0 +1,42 @@
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation</title>
+</head>
+
+<body>
+    <div class="logo">
+        <div class="text">
+            <div class="menu">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'service' %}">Service</a></li>
+                    <li><a href="{% url 'design' %}">Design</a></li>
+                    <li><a href="{% url 'content' %}">Content</a></li>
+                    <li><a href="{% url 'chat-room' %}">Chat room</a></li>
+                </ul>
+            </div>
+            <!-- <form method="GET" action="{% url 'home' %}">
+                <input type="text" name="q" placeholder="Type Here to Search">
+            </form> -->
+            <br>
+            {% if request.user.is_authenticated %}
+            <p>Hello {{request.user.username}}</p>
+            <a href="{% url 'logout' %}" >Logout</a>
+            {% else %}
+            <a href="{% url 'login' %}" >Login</a>
+            {% endif %} 
+
+            <br>
+            <br>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

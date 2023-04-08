@@ -1,0 +1,16 @@
+{% extends 'main1.html' %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+
+<div>
+    <form action="mailto:rishabhshah2193@gmail.com" method="post" enctype="text/plain">
+        Student Name:<br><input type="text" name="sname"> <br>
+        Student Subject:<br><input type="text" name="ssubject"><br>
+        <input type="submit" value="Send">
+     </form>
+    {% comment %} <p>Email:- <a href="">rishabhshah2193@gmail.com</a></p> {% endcomment %}
+</div>
+
+{% endblock content %}

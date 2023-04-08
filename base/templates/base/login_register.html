@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+
+{% block title %}Login/Register{% endblock %}
+
+{% block content %}
+
+{% if page == 'login' %}
+
+<div>
+    <form method="POST" action="">
+        {% csrf_token %}
+
+        <label>Username:</label>
+        <input type="text" name="email" placeholder="Enter Username" />
+
+        <label>Password:</label>
+        <input type="password" name="password" placeholder="Enter Password" />
+
+        <input type="submit" value="Login" />
+    </form>
+
+    <p>Haven't signed up yet?</p>
+    <a href="{% url 'register' %}">Sign Up</a>
+</div>
+
+
+{% else %}
+
+<div>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form__group form__group">
+          <label for="room_name">{{field.label}}</label>
+          {{field}}
+        </div>
+        {% endfor %}
+        {% comment %} {{form.as_p}} {% endcomment %}
+        <input type="submit" value="Register" />
+    </form>
+    <p>Already signed up?</p>
+    <a href="{% url 'login' %}">Login</a>
+</div>
+{% endif %}
+
+{% endblock content %}

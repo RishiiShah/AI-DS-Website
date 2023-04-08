@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Navigation{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles/navbar.css' %}">
+</head>
+
+<body>
+    <div>
+        <nav>
+            <div class="header">
+                <a href="/"><img src="{% static 'image/logo.svg' %}" alt="aidsLogo"></a>
+                <ul class="browsePad">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'syllabus' %}">Syllabus</a></li>
+                    <li><a href="{% url 'chapter' %}">Student Chapter</a></li>
+                    <li><a href="{% url 'content' %}">Content</a></li>
+                    <li><a href="{% url 'chat-room' %}">Chatroom</a></li>
+                </ul>
+            </div>
+            
+
+            <ul class="browsePad">
+                {% if request.user.is_authenticated %}
+                <li>
+                    <p> Hello {{request.user.username}}</p>
+                    <a href="{% url 'logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{% url 'login' %}">Log In</a>
+                </li>
+                <li><a href="{% url 'register' %}">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</body>
+<!-- <form method="GET" action="{% url 'home' %}">
+                <input type="text" name="q" placeholder="Type Here to Search">
+            </form> -->
+            {% comment %} <br> {% endcomment %}
+            {% comment %} {% if request.user.is_authenticated %}
+            <p>Hello {{request.user.username}}</p>
+            <a href="{% url 'logout' %}" >Logout</a>
+            {% else %}
+            {% if page != 'login' or page != 'register' %}
+            <a href="{% url 'login' %}" >Login</a>
+            {% endif %}
+            {% endif %}  {% endcomment %}
+
+            {% comment %} <br>
+            <br> {% endcomment %}
+</html>

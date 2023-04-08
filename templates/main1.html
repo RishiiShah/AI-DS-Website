@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'image/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'image/favicon-32x32.png' %}">
+    <link rel="manifest" href="{% static 'image/site.webmanifest' %}">
+    <title>{% block title %}Home Page{% endblock %}</title>
+</head>
+<body>
+    <div class="main">
+        {% include 'nav1.html' %}
+    <div class="text-main">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+</div>
+</body>
+</html>

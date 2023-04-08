@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 15vh;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-start;
+}
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+.browsePad {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+}
+
+.browsePad li {
+    flex: 1 1 auto;
+    margin-left: 0.75rem;
+    padding: 1rem;
+    letter-spacing: 1px;
+    transition: all .5s ease;
+    border-radius: 0.75rem;
+    align-items: stretch;
+}
+
+.browsePad li:hover {
+    letter-spacing: 0.125rem;
+    background-color: #f0f9ff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+a {
+    text-decoration:none
+}

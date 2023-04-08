@@ -1,0 +1,14 @@
+{% block content %}
+
+<h3>Browse Topics</h3>
+
+<div>
+    <a href="{% url 'chat-room' %}">All</a>
+</div>
+{% for topic in topics %}
+<div>
+    <a href="{% url 'chat-room' %}?q={{topic.name}}">{{topic.name}}</a>
+</div>
+{% endfor %}
+
+{% endblock content %}
